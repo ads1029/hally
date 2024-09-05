@@ -21,13 +21,13 @@ export default function Home() {
           <h2 className="text-2xl font-semibold mb-6 text-center">About Me</h2>
           <div className="bg-white dark:bg-gray-800 shadow-lg rounded-lg p-6 md:p-8">
             <p className="text-lg mb-4 leading-relaxed">
-              Hello! I'm 🐔🍐, a passionate photographer with over a decade of experience capturing life's beautiful moments. My journey in photography began with a simple point-and-shoot camera and has evolved into a lifelong pursuit of visual storytelling.
+              Hello! I&apos;m 🐔🍐, a passionate photographer with over a decade of experience capturing life&apos;s beautiful moments. My journey in photography began with a simple point-and-shoot camera and has evolved into a lifelong pursuit of visual storytelling.
             </p>
             <p className="text-lg mb-4 leading-relaxed">
-              I specialize in landscape, portrait, and street photography, always seeking to reveal the extraordinary in the ordinary. My work has been featured in national magazines and exhibitions, but my greatest joy comes from sharing the world's beauty through my lens with you.
+              I specialize in landscape, portrait, and street photography, always seeking to reveal the extraordinary in the ordinary. My work has been featured in national magazines and exhibitions, but my greatest joy comes from sharing the world&apos;s beauty through my lens with you.
             </p>
             <p className="text-lg leading-relaxed">
-              Whether I'm trekking through remote wilderness or exploring bustling city streets, I'm always in search of that perfect shot that tells a compelling story. I invite you to explore my portfolio and see the world through my eyes.
+              Whether I&apos;m trekking through remote wilderness or exploring bustling city streets, I&apos;m always in search of that perfect shot that tells a compelling story. I invite you to explore my portfolio and see the world through my eyes.
             </p>
           </div>
         </section>
