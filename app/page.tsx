@@ -1,101 +1,55 @@
 import Image from "next/image";
+import Navigation from "./components/Navigation";
+
+const photos = [
+  { src: "/placeholder1.jpg", width: 1200, height: 800 },
+  { src: "/placeholder2.jpg", width: 800, height: 1200 },
+  { src: "/placeholder3.jpg", width: 1600, height: 900 },
+  { src: "/placeholder4.jpg", width: 900, height: 1600 },
+  { src: "/placeholder5.jpg", width: 1200, height: 800 },
+  { src: "/placeholder6.jpg", width: 800, height: 1200 },
+];
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+      <Navigation />
+      <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <h1 className="text-4xl font-bold mb-8 text-center">Jane Doe Photography</h1>
+        
+        <section className="mb-16 max-w-3xl mx-auto">
+          <h2 className="text-2xl font-semibold mb-6 text-center">About Me</h2>
+          <div className="bg-white dark:bg-gray-800 shadow-lg rounded-lg p-6 md:p-8">
+            <p className="text-lg mb-4 leading-relaxed">
+              Hello! I'm 🐔🍐, a passionate photographer with over a decade of experience capturing life's beautiful moments. My journey in photography began with a simple point-and-shoot camera and has evolved into a lifelong pursuit of visual storytelling.
+            </p>
+            <p className="text-lg mb-4 leading-relaxed">
+              I specialize in landscape, portrait, and street photography, always seeking to reveal the extraordinary in the ordinary. My work has been featured in national magazines and exhibitions, but my greatest joy comes from sharing the world's beauty through my lens with you.
+            </p>
+            <p className="text-lg leading-relaxed">
+              Whether I'm trekking through remote wilderness or exploring bustling city streets, I'm always in search of that perfect shot that tells a compelling story. I invite you to explore my portfolio and see the world through my eyes.
+            </p>
+          </div>
+        </section>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+        <h2 className="text-3xl font-semibold mb-8 text-center">Featured Works</h2>
+        <div className="space-y-24">
+          {photos.map((photo, index) => (
+            <div key={index} className={`flex justify-${index % 2 === 0 ? 'start' : 'end'}`}>
+              <div className={`relative w-full md:w-2/3 ${photo.height > photo.width ? 'h-[32rem]' : 'h-96'} overflow-hidden rounded-lg shadow-lg`}>
+                <Image
+                  src={photo.src}
+                  alt={`Gallery photo ${index + 1}`}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 66vw"
+                  style={{ objectFit: "cover" }}
+                  className="transition-transform duration-300 hover:scale-105"
+                />
+              </div>
+            </div>
+          ))}
         </div>
       </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
     </div>
   );
 }
