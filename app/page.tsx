@@ -33,9 +33,9 @@ export default function Home() {
         </section>
 
         <h2 className="text-3xl font-semibold mb-8 text-center">Featured Works</h2>
-        <div className="space-y-24">
+        <div className="space-y-16">
           {photos.map((photo, index) => (
-            <div key={index} className={`flex justify-${index % 2 === 0 ? 'start' : 'end'}`}>
+            <div key={index} className={`flex ${index % 2 === 0 ? 'justify-start' : 'justify-end'}`}>
               <div className={`relative w-full md:w-2/3 ${photo.height > photo.width ? 'h-[32rem]' : 'h-96'} overflow-hidden rounded-lg shadow-lg`}>
                 <Image
                   src={photo.src}
